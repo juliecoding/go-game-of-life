@@ -112,6 +112,32 @@ func (u Universe) Neighbors(col, row int) int {
 	return count
 }
 
+// func (u Universe) Next1(col, row int) bool {
+// 	// A live cell with fewer than 2 live neighbors dies (isolation)
+// 	// A live cell with 2 or 3 live neighbors lives on (community!)
+// 	// A live cell with more than 3 live neighbors dies (overcrowding) 
+// 	// A dead cell with exactly three live neighbors becomes a live cell (birth)
+// 	isAlive := u.Alive(col, row)
+// 	livingNeighbors := u.Neighbors(col, row)
+// 	var livesOn bool
+
+// 	if !isAlive {
+// 		if livingNeighbors == 3 {
+// 			livesOn = true
+// 		}
+// 	} else {
+// 		switch {
+// 			case livingNeighbors < 2:
+// 				livesOn = false
+// 			case livingNeighbors == 2 || livingNeighbors == 3:
+// 				livesOn = true
+// 			case livingNeighbors > 3:
+// 				livesOn = false
+// 		}
+// 	}
+
+// 	return livesOn
+// }
 
 func (u Universe) Next(col, row int) bool {
 	n := u.Neighbors(col, row)
